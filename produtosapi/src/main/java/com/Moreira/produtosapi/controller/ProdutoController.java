@@ -3,10 +3,7 @@ package com.Moreira.produtosapi.controller;
 
 import com.Moreira.produtosapi.model.Produto;
 import com.Moreira.produtosapi.repository.ProdutoRepository;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.UUID;
 
@@ -23,7 +20,7 @@ public class ProdutoController {
 
     //SALVAR PRODUTO
     @PostMapping
-    public Produto salvar (@RequestBody Produto produto){
+    public Produto salvar(@RequestBody Produto produto) {
         System.out.println("Produto Recebido:" + produto);
 
         //Gerador Aleatorio do ID
@@ -35,6 +32,12 @@ public class ProdutoController {
         return produto;
     }
 
-
-
+    //Buscar via id
+    @GetMapping("{id}")
+    public Produto obterPorId(@PathVariable("id") String id) {
+        return produtoRepository.findById(id).orElse(null);
+    }
 }
+
+
+
