@@ -5,6 +5,7 @@ import com.Moreira.produtosapi.model.Produto;
 import com.Moreira.produtosapi.repository.ProdutoRepository;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.UUID;
 
 @RestController
@@ -36,6 +37,28 @@ public class ProdutoController {
     @GetMapping("{id}")
     public Produto obterPorId(@PathVariable("id") String id) {
         return produtoRepository.findById(id).orElse(null);
+    }
+
+
+    @DeleteMapping("{id}")
+    //Deletar Produtos
+    public void deletar ( @PathVariable("id") String id){
+        produtoRepository.deleteById(id);
+
+    }
+    @PutMapping("{id}")
+    // Atualizar o produto
+    public void atualizar (@PathVariable ("id") String id,@RequestBody Produto produto){
+        produto.setId(id);
+        produtoRepository.save(produto);
+    }
+
+    @GetMapping
+        //Busca de Produto
+        //Criando um metodo no produtoRepository
+
+        public List <Produto> buscar(@RequestParam("nome")String nome){
+            return produtoRepository.findByNome(nome);
     }
 }
 
