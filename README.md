@@ -31,11 +31,11 @@ Base URL: `http://localhost:8080`
 
 | Método | Rota | Descrição |
 |--------|------|-----------|
-| `GET` | `/products` | Retorna todos os produtos |
-| `GET` | `/products/{id}` | Retorna um produto pelo ID |
-| `POST` | `/products` | Cria um novo produto |
-| `PUT` | `/products/{id}` | Atualiza um produto existente |
-| `DELETE` | `/products/{id}` | Remove um produto |
+| `GET` | `/produtos` | Retorna todos os produtos |
+| `GET` | `/produtos/{id}` | Retorna um produto pelo ID |
+| `POST` | `/produtos` | Cria um novo produto |
+| `PUT` | `/produtos/{id}` | Atualiza um produto existente |
+| `DELETE` | `/produtos/{id}` | Remove um produto |
 
 ---
 
